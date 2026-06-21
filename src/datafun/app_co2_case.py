@@ -1,6 +1,6 @@
 """app_co2_case.py - Project script (example).
 
-Author: Denise Case
+Author: Denise Case, Ralph Massaquoi
 Date: 2026-06
 
 Purpose:
