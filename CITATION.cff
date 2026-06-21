@@ -20,7 +20,8 @@ authors:
     given-names: Denise M.
     orcid: "https://orcid.org/0000-0001-6165-7389"
     affiliation: "Northwest Missouri State University, School of Computer Science and Information Systems, Maryville, MO, USA"
-
+  - family-names: Massaquoi
+    given-names: Ralph
 repository-code: "https://github.com/nwmgraspr/datafun-07-regression"
 url: "https://github.com/nwmgraspr/datafun-07-regression"
 license: MIT
