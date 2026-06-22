@@ -1654,3 +1654,113 @@ the plots together and write down what you conclude.
 2026-06-22 12:42:33 | INFO | P07 | ========================
 2026-06-22 12:42:33 | INFO | P07 | Executed successfully!
 2026-06-22 12:42:33 | INFO | P07 | ========================
+2026-06-22 12:49:20 | INFO | P07 | === RUN START ===
+2026-06-22 12:49:20 | INFO | P07 | project=P07
+2026-06-22 12:49:20 | INFO | P07 | repo_dir=datafun-07-regression
+2026-06-22 12:49:20 | INFO | P07 | python=3.14.5
+2026-06-22 12:49:20 | INFO | P07 | os=Windows 10
+2026-06-22 12:49:20 | INFO | P07 | shell=powershell
+2026-06-22 12:49:20 | INFO | P07 | cwd=.
+2026-06-22 12:49:20 | INFO | P07 | github_actions=False
+2026-06-22 12:49:20 | INFO | P07 | === RUN START ===
+2026-06-22 12:49:20 | INFO | P07 | project=REGRESSION
+2026-06-22 12:49:20 | INFO | P07 | repo_dir=datafun-07-regression
+2026-06-22 12:49:20 | INFO | P07 | python=3.14.5
+2026-06-22 12:49:20 | INFO | P07 | os=Windows 10
+2026-06-22 12:49:20 | INFO | P07 | shell=powershell
+2026-06-22 12:49:20 | INFO | P07 | cwd=.
+2026-06-22 12:49:20 | INFO | P07 | github_actions=False
+2026-06-22 12:49:20 | INFO | P07 | ========================
+2026-06-22 12:49:20 | INFO | P07 | START main()
+2026-06-22 12:49:20 | INFO | P07 | ========================
+2026-06-22 12:49:20 | INFO | P07 | --- Section 2: Load dataset: penguins ---
+2026-06-22 12:49:20 | INFO | P07 | Loading dataset: penguins
+2026-06-22 12:49:20 | INFO | P07 | Loaded: 344 rows, 7 columns
+2026-06-22 12:49:20 | INFO | P07 | --- Section 3: Prepare a modeling view (feature + target) ---
+2026-06-22 12:49:20 | INFO | P07 | Creating modeling view (dropping rows missing feature or target)
+2026-06-22 12:49:20 | DEBUG | P07 | Columns required to be non-missing: ['flipper_length_mm', 'body_mass_g']
+2026-06-22 12:49:20 | INFO | P07 | Original rows: 344
+2026-06-22 12:49:20 | INFO | P07 | Model rows:    342
+2026-06-22 12:49:20 | INFO | P07 | Rows dropped:  2
+2026-06-22 12:49:20 | INFO | P07 | --- Section 4: Build feature matrix X and target vector y ---
+2026-06-22 12:49:20 | INFO | P07 | Building feature matrix X and target vector y
+2026-06-22 12:49:20 | DEBUG | P07 | X shape: (342, 1)  (rows, features)
+2026-06-22 12:49:20 | DEBUG | P07 | y shape: (342,)  (rows,)
+2026-06-22 12:49:20 | INFO | P07 | --- Section 5: Fit a straight line (scikit-learn) ---
+2026-06-22 12:49:20 | INFO | P07 | Fitting a linear regression (scikit-learn)
+2026-06-22 12:49:20 | DEBUG | P07 |   slope:     49.6856
+2026-06-22 12:49:20 | DEBUG | P07 |   intercept: -5780.83
+2026-06-22 12:49:20 | INFO | P07 | Fitted line:
+2026-06-22 12:49:20 | INFO | P07 |   body_mass_g = 49.6856 * flipper_length_mm + -5780.83
+2026-06-22 12:49:20 | INFO | P07 | --- Section 6: Predict fitted values and an example value ---
+2026-06-22 12:49:20 | INFO | P07 | Computing fitted values for every observed row
+2026-06-22 12:49:20 | INFO | P07 | Predicting Body mass (g) for one example Flipper length (mm) value
+2026-06-22 12:49:20 | DEBUG | P07 |   example flipper_length_mm: 200
+2026-06-22 12:49:20 | DEBUG | P07 |   predicted body_mass_g: 4156.28
+2026-06-22 12:49:20 | INFO | P07 | --- Section 7: Examine the fit (residuals, R-squared, RMSE) ---
+2026-06-22 12:49:20 | INFO | P07 | Computing residuals (actual - fitted)
+2026-06-22 12:49:20 | INFO | P07 | Fit numbers (for you to interpret):
+2026-06-22 12:49:20 | DEBUG | P07 |   R-squared: 0.7590
+2026-06-22 12:49:20 | DEBUG | P07 |   RMSE:      393.124  (in units of Body mass (g))
+2026-06-22 12:49:20 | DEBUG | P07 |   residual min:  -1058.8
+2026-06-22 12:49:20 | DEBUG | P07 |   residual max:  1288.69
+2026-06-22 12:49:20 | DEBUG | P07 |   residual mean: -5.31868e-14
+2026-06-22 12:49:20 | INFO | P07 | 
+CUSTOM: Update these notes and use Markdown cells to narrate what you see.
+
+How to read these (this is YOUR judgment, not the script's):
+
+ - R-squared near 1: the line accounts for most of the variation in y.
+   R-squared near 0: the line accounts for almost none.
+ - RMSE: the typical distance between a point and the line, in y's units.
+ - Residual plot (Section 8): if a straight line fits well, residuals
+   scatter randomly around 0 with no pattern. A curve, a funnel (spread
+   that grows or shrinks), or clusters are signs a straight line is not
+   the right description - which is itself a useful finding.
+
+There is no threshold that decides this for you. Look at the numbers and
+the plots together and write down what you conclude.
+
+2026-06-22 12:49:20 | INFO | P07 | --- Section 8: Charts ---
+2026-06-22 12:49:20 | INFO | P07 | ---- Creating Scatter Plot with Fitted Line ----------
+2026-06-22 12:49:20 | INFO | P07 | ----   Set x to Flipper length (mm) -----------------------
+2026-06-22 12:49:20 | INFO | P07 | ----   Set y to Body mass (g) -------------------------
+2026-06-22 12:49:21 | INFO | P07 | ------ Creating Residual Plot --------------------------
+2026-06-22 12:49:21 | INFO | P07 | ------   Set x to Flipper length (mm) ----------------------
+2026-06-22 12:49:21 | INFO | P07 | ------   Set y to the residual (actual - fitted) -------
+2026-06-22 12:49:21 | INFO | P07 | --- Section 9: Summary and next steps ---
+2026-06-22 12:49:21 | INFO | P07 | ========================
+2026-06-22 12:49:21 | INFO | P07 | SUMMARY
+2026-06-22 12:49:21 | INFO | P07 | ========================
+2026-06-22 12:49:21 | INFO | P07 | Dataset: penguins
+2026-06-22 12:49:21 | INFO | P07 | Feature (x): flipper_length_mm
+2026-06-22 12:49:21 | INFO | P07 | Target  (y): body_mass_g
+2026-06-22 12:49:21 | INFO | P07 | Original rows: 344
+2026-06-22 12:49:21 | INFO | P07 | Model rows:    342
+2026-06-22 12:49:21 | INFO | P07 | Fitted line:
+2026-06-22 12:49:21 | INFO | P07 |   body_mass_g = 49.6856 * flipper_length_mm + -5780.83
+2026-06-22 12:49:21 | INFO | P07 | ======================
+2026-06-22 12:49:21 | INFO | P07 | Review the fit numbers (R-squared, RMSE). 
+2026-06-22 12:49:21 | INFO | P07 | Look at the fitted-line plot and the residual plot. 
+2026-06-22 12:49:21 | INFO | P07 | Decide if a `straight line` is a fair description. 
+2026-06-22 12:49:21 | INFO | P07 | If the residuals DO show a pattern,
+2026-06-22 12:49:21 | INFO | P07 | then a straight line is NOT a good description. 
+2026-06-22 12:49:21 | INFO | P07 | If the residuals DO NOT show a pattern,
+2026-06-22 12:49:21 | INFO | P07 | then a straight line MIGHT be a good description. 
+2026-06-22 12:49:21 | INFO | P07 | Either way, the findings may be valuable.
+2026-06-22 12:49:21 | INFO | P07 | ======================
+2026-06-22 12:49:21 | INFO | P07 | Repeat with a different feature, or a transformed feature, 
+2026-06-22 12:49:21 | INFO | P07 | to investigate other options.
+2026-06-22 12:49:21 | INFO | P07 | ======================
+2026-06-22 12:49:21 | INFO | P07 | Include instructions and specifics in your README.md file.
+2026-06-22 12:49:21 | INFO | P07 | Write up your narrative on your docs/index.md file.
+2026-06-22 12:49:21 | INFO | P07 | Include your next step suggestions for further analysis or modeling.
+2026-06-22 12:49:21 | INFO | P07 | ======================
+2026-06-22 12:49:21 | INFO | P07 | ----- in a script, call plt.show() once at the end to display all charts -----
+2026-06-22 12:49:21 | INFO | P07 | ----- in a script, close the chart windows (with the close button) to continue  -----
+2026-06-22 12:49:24 | INFO | P07 | Linear regression workflow complete
+2026-06-22 12:49:24 | INFO | P07 | IMPORTANT: This script creates chart windows.
+2026-06-22 12:49:24 | INFO | P07 | Close any chart windows and terminate this process with CTRL+c as needed.
+2026-06-22 12:49:24 | INFO | P07 | ========================
+2026-06-22 12:49:24 | INFO | P07 | Executed successfully!
+2026-06-22 12:49:24 | INFO | P07 | ========================
