@@ -1,4 +1,4 @@
-"""app_penguins_case_mass.py - Project script (example).
+"""app_penguins_case.py - Project script (example).
 
 Author: Denise Case, Ralph Massaquoi
 Date: 2026-06
