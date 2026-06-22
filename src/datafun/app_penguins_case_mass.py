@@ -357,87 +357,67 @@ the plots together and write down what you conclude.
 
 # === Section 8. Create Visualizations ===
 
-
 def make_plots(
     df_model: pd.DataFrame, y_hat: np.ndarray, residuals: np.ndarray
 ) -> None:
-    """Create notebook-friendly plots for the regression.
+    """Create notebook-friendly regression diagnostic plots."""
 
-    Arguments:
-        df_model: Cleaned modeling view.
-        y_hat: Fitted values, shape (n,).
-        residuals: Residuals (actual - fitted), shape (n,).
-
-    Returns:
-        None
-
-    WHY: The fitted-line plot shows whether the line tracks the points.
-    The residual plot shows whether what's left over has a pattern.
-    Together they show whether a straight line is a fair description.
-
-    Common charts here:
-    1. A scatter of feature vs target with the fitted line drawn on top.
-    2. A residual plot: residuals vs the feature, with a line at zero.
-    """
     feature_values: np.ndarray = df_model[FEATURE_COL].to_numpy()
     target_values: np.ndarray = df_model[TARGET_COL].to_numpy()
 
     LOG.info("---- Creating Scatter Plot with Fitted Line ----------")
-    LOG.info(f"----   Set x to {FEATURE_LABEL} -----------------------")
-    LOG.info(f"----   Set y to {TARGET_LABEL} -------------------------")
 
-    # Open a fresh blank canvas before a new chart
+    # -----------------------------
+    # Plot 1: Fitted regression
+    # -----------------------------
     plt.figure()
 
-    # The observed points
-    scatter_plt: Axes = sns.scatterplot(
+    # Sort values for clean line plotting
+    order: np.ndarray = np.argsort(feature_values)
+    x_sorted = feature_values[order]
+    y_sorted_pred = y_hat[order]
+
+    ax1: Axes = sns.scatterplot(
         x=feature_values,
         y=target_values,
+        alpha=0.7,
+        edgecolor="none"
     )
 
-    # The fitted line. Sort by x so the line is drawn left to right.
-    order: np.ndarray = np.argsort(feature_values)
-    scatter_plt.plot(feature_values[order], y_hat[order])
+    sns.lineplot(
+        x=x_sorted,
+        y=y_sorted_pred,
+        color="red",
+        linewidth=2,
+        label="Fitted line",
+        ax=ax1
+    )
 
-    scatter_plt.set_xlabel(FEATURE_LABEL)
-    scatter_plt.set_ylabel(TARGET_LABEL)
-    scatter_plt.set_title(f"{FEATURE_LABEL} vs {TARGET_LABEL} with fitted line")
+    ax1.set_xlabel(FEATURE_LABEL)
+    ax1.set_ylabel(TARGET_LABEL)
+    ax1.set_title(f"{FEATURE_LABEL} vs {TARGET_LABEL} (Regression Fit)")
+    ax1.grid(True, linestyle="--", alpha=0.4)
 
-    # IN NOTEBOOK: SHOW AS YOU GO
-    #      plt.show() displays the current chart and closes it
-    #      Call this before starting a new chart
-    #      or next chart will be drawn on top of this one
-    # IN SCRIPT: WAIT TO SHOW TILL THE END
-    #      Do not call plt.show() here - let figures accumulate
-    #      so all charts display together with sequential Figure numbers.
-    #      plt.show() is called once at the end of main()
-    # plt.show()
+    # -----------------------------
+    # Plot 2: Residuals
+    # -----------------------------
+    LOG.info("---- Creating Residual Plot --------------------------")
 
-    LOG.info("------ Creating Residual Plot --------------------------")
-    LOG.info(f"------   Set x to {FEATURE_LABEL} ----------------------")
-    LOG.info("------   Set y to the residual (actual - fitted) -------")
-
-    # Open a fresh blank canvas before a new chart
     plt.figure()
 
-    residual_plt: Axes = sns.scatterplot(
+    ax2: Axes = sns.scatterplot(
         x=feature_values,
         y=residuals,
+        alpha=0.7,
+        edgecolor="none"
     )
 
-    # A reference line at residual = 0. Points scattered randomly around
-    # this line (no pattern) is what a good straight-line fit looks like.
-    residual_plt.axhline(0)
+    ax2.axhline(0, color="red", linestyle="--", linewidth=2)
 
-    residual_plt.set_xlabel(FEATURE_LABEL)
-    residual_plt.set_ylabel(f"Residual ({TARGET_LABEL})")
-    residual_plt.set_title(f"Residuals vs {FEATURE_LABEL}")
-
-    # IN NOTEBOOK: SHOW AS YOU GO
-    #      plt.show() displays the current chart and closes it
-    # IN SCRIPT: WAIT TO SHOW TILL THE END
-    #      Do not call plt.show() here - plt.show() is called once at end.
-    # plt.show()
+    ax2.set_xlabel(FEATURE_LABEL)
+    ax2.set_ylabel(f"Residual ({TARGET_LABEL})")
+    ax2.set_title(f"Residuals vs {FEATURE_LABEL}")
+    ax2.grid(True, linestyle="--", alpha=0.4)
 
 
 # === Section 9. Summary and Next Steps ===
