@@ -51,6 +51,7 @@ from typing import Final  # for type hinting
 from datafun_toolkit.logger import get_logger, log_header
 from matplotlib.axes import Axes
 import matplotlib.pyplot as pltimport seaborn as sns
+import seaborn as sns
 import pandas as pd
 
 from sklearn.model_selection import train_test_split
