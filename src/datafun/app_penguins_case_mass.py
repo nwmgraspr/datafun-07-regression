@@ -419,6 +419,7 @@ def make_plots(
     ax2.set_title(f"Residuals vs {FEATURE_LABEL}")
     ax2.grid(True, linestyle="--", alpha=0.4)
 
+plt.close("all")
 
 # === Section 9. Summary and Next Steps ===
 
