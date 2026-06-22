@@ -174,7 +174,6 @@ def make_model_view(df: pd.DataFrame) -> pd.DataFrame:
 
 # === Section 4. Build the Feature Matrix X and Target Vector y ===
 
-
 def build_x_and_y(df_model: pd.DataFrame) -> tuple[np.ndarray, np.ndarray]:
     """Build X (feature matrix) and y (target vector) for scikit-learn.
 
