@@ -1,4 +1,4 @@
-"""app_penguins_case.py - Project script (example).
+"""app_penguins_case_mass.py - Project script (example).
 
 Author: Denise Case, Ralph Massaquoi
 Date: 2026-06
@@ -25,7 +25,7 @@ Assumptions:
 
 Terminal command to run this file from the root project folder:
 
-uv run python -m datafun.app_penguins_case
+uv run python -m datafun.app_penguins_case_mass
 
 OBS:
   Don't edit this file - it should remain a working example.
